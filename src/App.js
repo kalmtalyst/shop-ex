@@ -11,7 +11,13 @@ function App() {
     <div className="App">
       <Navigation />
       <Carousels />
-      <Items shoes={shoes} />
+      <div className="container">
+        <div className="row">
+          {shoes.map((shoe, i) => {
+            return <Items shoes={shoes[i]} i={i} key={i} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 }
