@@ -1,5 +1,35 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
+import styled from "styled-components";
+
+let Box = styled.div`
+  padding: 20px;
+`;
+let Title = styled.h4`
+  font-size: 25px;
+  font-weight: bold;
+  color: ${(props) => props.color};
+`;
+
+let DetailInfo = styled.div`
+  width: 300px;
+  h4 {
+    border-top: 1px solid black;
+    color: #443737;
+  }
+  p {
+    padding: 10px;
+    margin: 10px;
+    border-bottom: 1px solid black;
+    color: #ed5107;
+  }
+`;
+
+let Button = styled.button`
+  background-color: #ff4301;
+  color: #ffffff;
+  margin: 10px 10px 0 0;
+`;
 
 function Detail(props) {
   let { id } = useParams();
@@ -11,6 +41,9 @@ function Detail(props) {
   return (
     <div>
       <div className="container">
+        <Box>
+          <Title color={"#7D0633"}>Detail Page</Title>
+        </Box>
         <div className="row">
           <div className="col-md-6">
             <img
@@ -21,13 +54,13 @@ function Detail(props) {
               alt=""
             />
           </div>
-          <div className="col-md-6 mt-4">
+          <DetailInfo className="col-md-6 mt-4">
             <h4 className="pt-5">{clickedShoes.title}</h4>
             <p>{clickedShoes.content}</p>
             <p>₩{clickedShoes.price}</p>
 
-            <button className="btn btn-danger">주문하기</button>
-            <button
+            <Button className="btn btn-danger">주문하기</Button>
+            <Button
               className="btn btn-danger"
               onClick={() => {
                 // history.goBack();
@@ -35,8 +68,8 @@ function Detail(props) {
               }}
             >
               뒤로가기
-            </button>
-          </div>
+            </Button>
+          </DetailInfo>
         </div>
       </div>
     </div>
