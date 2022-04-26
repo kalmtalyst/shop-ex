@@ -1,0 +1,33 @@
+@import '../reset.scss';
+
+$mainColor: #ff0000;
+
+.titleColor {
+  color: $mainColor;
+}
+
+// nesting 문법
+div.container {
+  .my-alert {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .my-alert-red {
+    @extend .my-alert;
+    color: $mainColor;
+    font-weight: bold;
+    background: #ffe591;
+  }
+  .my-alert p {
+    margin-bottom: 0;
+  }
+  img {
+    margin-top: 20px;
+    max-width: 500px;
+  }
+}
+
