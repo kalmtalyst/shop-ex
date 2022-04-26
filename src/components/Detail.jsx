@@ -35,7 +35,6 @@ let Button = styled.button`
 
 function Detail(props) {
   let [alert, setAlert] = useState(true);
-  let [inputData, setInputData] = useState("");
 
   useEffect(() => {
     // mount시, update시 실행

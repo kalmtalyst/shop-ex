@@ -4,16 +4,22 @@ import Navigation from "./components/Navigation";
 import Carousels from "./components/Carousels";
 import Items from "./components/Items";
 import shoesData from "./data";
-import { Route, Switch, useParams } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import axios from "axios";
 import Detail from "./components/Detail";
-import { Link } from "react-router-dom";
 
 function App() {
-  let { id } = useParams();
   let [shoes, setShoes] = useState(shoesData);
-  // const goToShoes = () => {
-  //   return <Link to="/detail"></Link>;
-  // };
+
+  const getMore = () => {
+    axios
+      .get("https://codingapple1.github.io/shop/data2.json")
+      .then((response) => {
+        setShoes([...shoes, ...response.data]);
+        // setShoes(shoes.concat(response.data));
+      })
+      .catch(alert("ERROR"));
+  };
   return (
     <div className="App">
       <Navigation />
@@ -27,6 +33,9 @@ function App() {
               })}
             </div>
           </div>
+          <button className="btn btn-primary" onClick={getMore}>
+            + more
+          </button>
         </Route>
         <Route path="/detail/:id">
           <Detail shoes={shoes} />
