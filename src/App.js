@@ -10,6 +10,7 @@ import Detail from "./components/Detail";
 
 function App() {
   let [shoes, setShoes] = useState(shoesData);
+  let [stock, setStock] = useState([10, 11, 12]);
 
   const getMore = () => {
     axios
@@ -38,7 +39,7 @@ function App() {
           </button>
         </Route>
         <Route path="/detail/:id">
-          <Detail shoes={shoes} />
+          <Detail shoes={shoes} stock={stock} setStock={setStock} />
         </Route>
       </Switch>
     </div>

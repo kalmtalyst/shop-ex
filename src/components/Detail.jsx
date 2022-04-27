@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import "./detail.scss";
+import StockInfo from "./StockInfo";
 
 let Box = styled.div`
   padding: 20px;
@@ -86,7 +87,14 @@ function Detail(props) {
             <p>{clickedShoes.content}</p>
             <p>₩{clickedShoes.price}</p>
 
-            <Button className="btn btn-danger">주문하기</Button>
+            <StockInfo stock={props.stock} />
+
+            <Button
+              className="btn btn-danger"
+              onClick={() => props.setStock([9, 11, 12])}
+            >
+              주문하기
+            </Button>
             <Button
               className="btn btn-danger"
               onClick={() => {
