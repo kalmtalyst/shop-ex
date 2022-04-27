@@ -1,20 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Carousels(props) {
-  // const [index, setIndex] = useState(0);
-
-  // const handleSelect = (selectedIndex, e) => {
-  //   setIndex(selectedIndex);
-  // };
-
   return (
     <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="public\logo192.png"
+          src={process.env.PUBLIC_URL + "/9Jrds329V2w.jpg"}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -25,7 +19,10 @@ function Carousels(props) {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src={
+            process.env.PUBLIC_URL +
+            "/897c40728c898016e8a8c68ef28319f725c8f665.jpg"
+          }
           alt="Second slide"
         />
 
@@ -37,7 +34,7 @@ function Carousels(props) {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src={process.env.PUBLIC_URL + "/bLp9aGZwcRc.jpg"}
           alt="Third slide"
         />
 
