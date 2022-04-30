@@ -1,11 +1,12 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./carousels.scss";
 
 function Carousels(props) {
   return (
     <Carousel>
-      <Carousel.Item>
+      <Carousel.Item className="carousel-img">
         <img
           className="d-block w-100"
           src={process.env.PUBLIC_URL + "/9Jrds329V2w.jpg"}
@@ -16,7 +17,7 @@ function Carousels(props) {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="carousel-img">
         <img
           className="d-block w-100"
           src={
@@ -31,7 +32,7 @@ function Carousels(props) {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item className="carousel-img">
         <img
           className="d-block w-100"
           src={process.env.PUBLIC_URL + "/bLp9aGZwcRc.jpg"}
