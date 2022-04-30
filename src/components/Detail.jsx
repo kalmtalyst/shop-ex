@@ -52,9 +52,7 @@ function Detail(props) {
   let { id } = useParams();
   let history = useHistory();
 
-  let clickedShoes = props.shoes.find(function (shoe) {
-    return shoe.id == id;
-  });
+  let clickedShoes = props.shoes.find((shoe) => shoe.id == id);
 
   let picNum = ++id;
 
