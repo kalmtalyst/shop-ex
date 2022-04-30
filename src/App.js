@@ -8,6 +8,9 @@ import { Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Detail from "./components/Detail";
 
+// Context API
+export let StockContext = React.createContext(null); // 1. 같은 값을 공유하는 범위 생성
+
 function App() {
   let [shoes, setShoes] = useState(shoesData);
   let [stock, setStock] = useState([10, 11, 12]);
@@ -28,11 +31,14 @@ function App() {
         <Route exact path={"/"}>
           <Carousels />
           <div className="container">
-            <div className="row">
-              {shoes.map((shoe, i) => {
-                return <Items shoes={shoes[i]} i={i} key={i} />;
-              })}
-            </div>
+            {/* 2. 같은 값을 공유할 HTML 범위 설정 */}
+            <StockContext.Provider value={stock}>
+              <div className="row">
+                {shoes.map((shoe, i) => {
+                  return <Items shoes={shoes[i]} i={i} key={i} />;
+                })}
+              </div>
+            </StockContext.Provider>
           </div>
           <button className="btn btn-primary" onClick={getMore}>
             + more

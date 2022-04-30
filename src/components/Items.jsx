@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { StockContext } from "../App";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -20,6 +21,8 @@ const StyledLink = styled(Link)`
   }
 `;
 function Items({ shoes, i }) {
+  let stockValue = useContext(StockContext);
+
   let num = i + 1;
   return (
     <div className="col-md-4">
@@ -32,6 +35,7 @@ function Items({ shoes, i }) {
         <h4>{shoes.title}</h4>
         <p>{shoes.content}</p>
         <p>{shoes.price}</p>
+        <p>{stockValue[i]}</p>
       </StyledLink>
     </div>
   );
