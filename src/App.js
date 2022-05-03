@@ -7,6 +7,7 @@ import shoesData from "./data";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Detail from "./components/Detail";
+import Cart from "./components/Cart";
 
 // Context API
 export let StockContext = React.createContext(null); // 1. 같은 값을 공유하는 범위 생성
@@ -46,6 +47,9 @@ function App() {
         </Route>
         <Route path="/detail/:id">
           <Detail shoes={shoes} stock={stock} setStock={setStock} />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
     </div>
